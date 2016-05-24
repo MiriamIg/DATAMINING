@@ -1,0 +1,59 @@
+CREATE DATABASE CUESTIONARIO;
+USE DATABASE CUESTIONARIO;
+
+CREATE TABLE ALUMNO(
+Matricula integer,
+Nombre varchar2(25),
+ApPat varchar2(20),
+ApMat varchar2(20),
+Edad integer,
+FechaNacimiento varchar2(25),
+Carrera varchar2(20),
+constraint pk1_alumno primary key(Matricula)
+);
+
+CREATE TABLE MATERIAS(
+ClaveMateria integer,
+Descripcion varchar2(25),
+Cuatrimestre varchar2(20),
+Creditos varchar2(20),
+constraint pk1_materias primary key(ClaveMateria)
+);
+ 
+
+CREATE TABLE CALIFICACIONES(
+ClaveMateria integer,
+Matricula integer,
+Bimestral integer,
+Final integer,
+EvalContinua integer,
+Resulatdo integer,
+constraint fk1_calificaciones foreign key(Matricula) references ALUMNO(Matricula),
+constraint fk2_calificaciones foreign key(ClaveMateria) references MATERIAS(ClaveMatricula)
+);
+ 
+
+insert into ALUMNO values(1,'Miriam','Ignacio','Jimenez',21,'19/04/1995','Sistemas Computacionales');
+insert into ALUMNO values(2,'Soria','Hernandez','Sanchez',23,'09/05/1992','Pedagogia');
+insert into ALUMNO values(3,'Juan','Jimenez','Gonzalez',30,'11/01/1986','Derecho');
+insert into ALUMNO values(4,'Carlos','Sanchez','Morales',22,'18/06/1975','Enfermeria');
+insert into ALUMNO values(5,'Susana','Fernandez','Jimenez',25,'24/10/1955','Mecatronica');
+
+
+insert into MATERIAS values(1,'Matematicas',1,6);
+insert into MATERIAS values(2,'Calculo integral',3,4);
+insert into MATERIAS values(3,'Contabilidad',4,3);
+insert into MATERIAS values(4,'Ciencia y tecnica con humanismo ',1,4);
+insert into MATERIAS values(5,'Biologia',2,3);
+
+inser into CALIFICACIONES values(1,1,8,9,8,8);
+inser into CALIFICACIONES values(2,4,9,9,9,9);
+inser into CALIFICACIONES values(3,3,7,7,8,7.8);
+inser into CALIFICACIONES values(4,5,8,8,8,8);
+inser into CALIFICACIONES values(5,2,8,9,8,8);
+
+
+
+
+
+ 
